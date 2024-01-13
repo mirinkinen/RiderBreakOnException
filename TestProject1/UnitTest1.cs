@@ -9,20 +9,20 @@ public class UnitTest1
     [TestMethod]
     public async Task DoesNotBreakOnExceptionAsync()
     {
-        var queryable = await GetQueryableAsync();
+        var enumerable = await GetEnumerableAsync();
 
-        Assert.IsNull(queryable);
+        Assert.IsNull(enumerable);
     }
     
     [TestMethod]
     public void DoesNotBreakOnException()
     {
-        var queryable = GetQueryableAsync().Result;
+        var queryable = GetEnumerableAsync().Result;
 
         Assert.IsNull(queryable);
     }
 
-    private async Task<IEnumerable> GetQueryableAsync()
+    private async Task<IEnumerable> GetEnumerableAsync()
     {
         await Task.Delay(100);
         return Enumerable.Empty<object>();
