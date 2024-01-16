@@ -17,9 +17,9 @@ public class UnitTest1
     [TestMethod]
     public void DoesNotBreakOnException()
     {
-        var queryable = GetEnumerableAsync().Result;
+        var enumerable = GetEnumerableAsync().Result;
 
-        Assert.IsNull(queryable);
+        Assert.IsNull(enumerable);
     }
 
     private async Task<IEnumerable> GetEnumerableAsync()
