@@ -6,7 +6,7 @@ public class UnitTests
     [TestMethod]
     public void BreakOnException()
     {
-        var enumerable = GetEnumerable().GetAwaiter().GetResult();
+        var enumerable = GetEnumerable();
 
         Assert.IsNull(enumerable);
     }
@@ -14,15 +14,13 @@ public class UnitTests
     [TestMethod]
     public async Task BreakOnExceptionAsync()
     {
-        var enumerable = await GetEnumerable();
+        var enumerable = GetEnumerable();
 
         Assert.IsNull(enumerable);
     }
 
-    private static Task<IEnumerable<string>> GetEnumerable()
+    private static IEnumerable<string> GetEnumerable()
     {
-        var emptyEnumeration = Enumerable.Empty<string>();
-        
-        return Task.FromResult(emptyEnumeration);
+        return Enumerable.Empty<string>();
     }
 }
