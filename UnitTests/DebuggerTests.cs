@@ -44,13 +44,13 @@ public class DebuggerTests
     }
 
     /// <summary>
-    /// Rider stops only when "Only break on exceptions thrown from user code" is disabled.
+    /// Rider always stops on exception.
     /// </summary>
     [TestMethod]
     public void ExceptionThrownFromIndexOperator()
     {
-        var list = new List<string>();
-        var item = list[0];
+        var array = Array.Empty<int>();
+        var item = array[0];
     }
 
     /// <summary>
@@ -59,7 +59,7 @@ public class DebuggerTests
     [TestMethod]
     public void ExceptionThrownFromEnumerableFirst()
     {
-        var list = new List<string>();
-        var item = list.First();
+        var array = Array.Empty<int>();
+        var item = array.First();
     }
 }
