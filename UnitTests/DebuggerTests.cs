@@ -3,6 +3,9 @@
 [TestClass]
 public class DebuggerTests
 {
+    /// <summary>
+    /// Rider always stops on exception.
+    /// </summary>
     [TestMethod]
     public void ExceptionThrownInMyCode()
     {
@@ -10,7 +13,7 @@ public class DebuggerTests
     }
 
     /// <summary>
-    /// Does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// Rider stops only when "Only break on exceptions thrown from user code" is disabled.
     /// </summary>
     [TestMethod]
     public void ExceptionThrownInThirdPartyCode()
@@ -18,6 +21,9 @@ public class DebuggerTests
         Assert.IsNotNull(null);
     }
 
+    /// <summary>
+    /// Rider always stops on exception.
+    /// </summary>
     [TestMethod]
     public async Task ExceptionThrownInMyCodeAsync()
     {
@@ -27,7 +33,7 @@ public class DebuggerTests
     }
 
     /// <summary>
-    /// Does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// Rider stops only when "Only break on exceptions thrown from user code" is disabled.
     /// </summary>
     [TestMethod]
     public async Task ExceptionThrownInThirdPartyCodeAsync()
@@ -38,7 +44,7 @@ public class DebuggerTests
     }
 
     /// <summary>
-    /// Does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// Rider stops only when "Only break on exceptions thrown from user code" is disabled.
     /// </summary>
     [TestMethod]
     public void ExceptionThrownFromIndexOperator()
@@ -48,7 +54,7 @@ public class DebuggerTests
     }
 
     /// <summary>
-    /// Does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// Rider stops only when "Only break on exceptions thrown from user code" is disabled.
     /// </summary>
     [TestMethod]
     public void ExceptionThrownFromEnumerableFirst()

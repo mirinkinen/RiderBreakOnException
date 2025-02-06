@@ -18,8 +18,10 @@ public class Program
             //ExceptionThrownInThirdPartyCode();
             //await ExceptionThrownInMyCodeAsync();
             //await ExceptionThrownInThirdPartyCodeAsync();
-            //ExceptionThrownFromIndexOperator();
-            //ExceptionThrownFromEnumerableFirst();
+            //ExceptionThrownFromListIndexOperator();
+            //ExceptionThrownFromListEnumerableFirst();
+            //ExceptionThrownFromArrayIndexOperator();
+            //ExceptionThrownFromArrayEnumerableFirst();
         }
         catch (Exception ex)
         {
@@ -27,19 +29,25 @@ public class Program
         }
     }
 
+    /// <summary>
+    /// Rider always stops on exception.
+    /// </summary>
     public static void ExceptionThrownInMyCode()
     {
         throw new Exception("Test");
     }
 
     /// <summary>
-    /// Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// Rider stops only when "Only break on exceptions thrown from user code" is disabled.
     /// </summary>
     public static void ExceptionThrownInThirdPartyCode()
     {
         Assert.IsNotNull(null);
     }
 
+    /// <summary>
+    /// Rider always stops on exception.
+    /// </summary>
     public static async Task ExceptionThrownInMyCodeAsync()
     {
         await Task.Delay(10);
@@ -48,7 +56,7 @@ public class Program
     }
 
     /// <summary>
-    /// Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// Rider stops only when "Only break on exceptions thrown from user code" is disabled.
     /// </summary>
     public static async Task ExceptionThrownInThirdPartyCodeAsync()
     {
@@ -58,20 +66,38 @@ public class Program
     }
 
     /// <summary>
-    /// Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// Rider stops only when "Only break on exceptions thrown from user code" is disabled.
     /// </summary>
-    public static void ExceptionThrownFromIndexOperator()
+    public static void ExceptionThrownFromListIndexOperator()
     {
-        var list = new List<string>();
+        var list = new List<int>();
         var item = list[0];
     }
 
     /// <summary>
-    /// Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// Rider stops only when "Only break on exceptions thrown from user code" is disabled.
     /// </summary>
-    public static void ExceptionThrownFromEnumerableFirst()
+    public static void ExceptionThrownFromListEnumerableFirst()
     {
-        var list = new List<string>();
+        var list = new List<int>();
         var item = list.First();
+    }
+    
+    /// <summary>
+    /// Rider always stops on exception.
+    /// </summary>
+    public static void ExceptionThrownFromArrayIndexOperator()
+    {
+        var array = Array.Empty<int>();
+        var item = array[0];
+    }
+
+    /// <summary>
+    /// Rider stops only when "Only break on exceptions thrown from user code" is disabled.
+    /// </summary>
+    public static void ExceptionThrownFromArrayEnumerableFirst()
+    {
+        var array = Array.Empty<int>();
+        var item = array.First();
     }
 }
