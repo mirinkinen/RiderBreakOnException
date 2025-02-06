@@ -1,19 +1,27 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ConsoleApp;
+namespace CatchedExceptions;
 
 public class Program
 {
     public static async Task Main(string[] args)
     {
+        
         // Uncomment methods to test.
 
-        //ExceptionThrownInMyCode();
-        //ExceptionThrownInThirdPartyCode();
-        //await ExceptionThrownInMyCodeAsync();
-        //await ExceptionThrownInThirdPartyCodeAsync();
-        //ExceptionThrownFromIndexOperator();
-        //ExceptionThrownFromEnumerableFirst();
+        try
+        {
+            //ExceptionThrownInMyCode();
+            //ExceptionThrownInThirdPartyCode();
+            //await ExceptionThrownInMyCodeAsync();
+            //await ExceptionThrownInThirdPartyCodeAsync();
+            //ExceptionThrownFromIndexOperator();
+            //ExceptionThrownFromEnumerableFirst();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Catched");
+        }
     }
 
     public static void ExceptionThrownInMyCode()
