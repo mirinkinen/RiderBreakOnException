@@ -9,6 +9,9 @@ public class DebuggerTests
         throw new Exception("Test");
     }
 
+    /// <summary>
+    /// Does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// </summary>
     [TestMethod]
     public void ExceptionThrownInThirdPartyCode()
     {
@@ -23,6 +26,9 @@ public class DebuggerTests
         throw new Exception("Test");
     }
 
+    /// <summary>
+    /// Does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// </summary>
     [TestMethod]
     public async Task ExceptionThrownInThirdPartyCodeAsync()
     {
@@ -31,6 +37,9 @@ public class DebuggerTests
         Assert.IsNotNull(null);
     }
 
+    /// <summary>
+    /// Does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// </summary>
     [TestMethod]
     public void ExceptionThrownFromIndexOperator()
     {
@@ -38,6 +47,9 @@ public class DebuggerTests
         var item = list[0];
     }
 
+    /// <summary>
+    /// Does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// </summary>
     [TestMethod]
     public void ExceptionThrownFromEnumerableFirst()
     {

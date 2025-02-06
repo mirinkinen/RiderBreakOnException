@@ -4,10 +4,12 @@ namespace UncatchedExceptions;
 
 public class Program
 {
+    /// <summary>
+    /// Demonstrates scenarios where Rider always stops on exception regardless of the "Only break on exceptions thrown from user code"
+    /// setting.
+    /// </summary>
     public static async Task Main(string[] args)
     {
-        // Uncomment methods to test.
-
         //ExceptionThrownInMyCode();
         //ExceptionThrownInThirdPartyCode();
         //await ExceptionThrownInMyCodeAsync();

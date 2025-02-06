@@ -5,16 +5,16 @@ namespace CatchedExceptions;
 public class Program
 {
     /// <summary>
-    /// Demonstrates scenarios where Rider does not stop on exceptions. Visual Studio does stop on all exceptions. This causes confusion
-    /// to people coming from Visual Studio.
+    /// Demonstrates scenarios where Rider stops on exception depending on the setting "Only break on exceptions thrown from user code".
+    /// Disable the setting to break on all exceptions.
     /// </summary>
     public static async Task Main(string[] args)
     {
         try
         {
             // Uncomment methods to test.
-            
-            ExceptionThrownInMyCode();
+
+            //ExceptionThrownInMyCode();
             //ExceptionThrownInThirdPartyCode();
             //await ExceptionThrownInMyCodeAsync();
             //await ExceptionThrownInThirdPartyCodeAsync();
@@ -32,9 +32,11 @@ public class Program
         throw new Exception("Test");
     }
 
+    /// <summary>
+    /// Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// </summary>
     public static void ExceptionThrownInThirdPartyCode()
     {
-        // Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
         Assert.IsNotNull(null);
     }
 
@@ -45,27 +47,31 @@ public class Program
         throw new Exception("Test");
     }
 
+    /// <summary>
+    /// Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// </summary>
     public static async Task ExceptionThrownInThirdPartyCodeAsync()
     {
         await Task.Delay(10);
 
-        // Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
         Assert.IsNotNull(null);
     }
 
+    /// <summary>
+    /// Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// </summary>
     public static void ExceptionThrownFromIndexOperator()
     {
         var list = new List<string>();
-        
-        // Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
         var item = list[0];
     }
 
+    /// <summary>
+    /// Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
+    /// </summary>
     public static void ExceptionThrownFromEnumerableFirst()
     {
         var list = new List<string>();
-        
-        // Rider does not stop when "Only break on exceptions thrown from user code" is enabled.
         var item = list.First();
     }
 }
