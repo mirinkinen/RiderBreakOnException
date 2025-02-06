@@ -2,17 +2,53 @@
 
 namespace ConsoleApp;
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
-        var enumerable = GetEnumerable();
-    
-        Assert.IsNull(enumerable);
+        // Uncomment methods to test.
+
+        //ExceptionThrownInMyCode();
+        //ExceptionThrownInThirdPartyCode();
+        //await ExceptionThrownInMyCodeAsync();
+        //await ExceptionThrownInThirdPartyCodeAsync();
+        //ExceptionThrownFromIndexOperator();
+        //ExceptionThrownFromEnumerableFirst();
     }
-    
-    private static IEnumerable<string> GetEnumerable()
+
+    public static void ExceptionThrownInMyCode()
     {
-        return Enumerable.Empty<string>();
+        throw new Exception("Test");
+    }
+
+    public static void ExceptionThrownInThirdPartyCode()
+    {
+        Assert.IsNotNull(null);
+    }
+
+    public static async Task ExceptionThrownInMyCodeAsync()
+    {
+        await Task.Delay(10);
+
+        throw new Exception("Test");
+    }
+
+    public static async Task ExceptionThrownInThirdPartyCodeAsync()
+    {
+        await Task.Delay(10);
+
+        Assert.IsNotNull(null);
+    }
+
+    public static void ExceptionThrownFromIndexOperator()
+    {
+        var list = new List<string>();
+        var item = list[0];
+    }
+
+    public static void ExceptionThrownFromEnumerableFirst()
+    {
+        var list = new List<string>();
+        var item = list.First();
     }
 }
